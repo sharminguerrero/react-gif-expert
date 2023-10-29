@@ -8,12 +8,16 @@ export const GifExpertApp = () => {
   const onAddCategory = (newCategory) =>{
 
     if (categories.includes(newCategory))return;
-    setCategories ([...categories, newCategory])
+    setCategories ([newCategory, ...categories])
+  }
+
+  const cleanApp = () => {
+    setCategories ([]);
   }
   return (
     <>
     <h1>GifExpertApp</h1>
-
+    <button onClick={cleanApp}>Limpiar</button>
     <AddCategory 
     onNewCategory = {(event) => onAddCategory (event)}
     />
@@ -23,5 +27,6 @@ export const GifExpertApp = () => {
             ))
         }
     </>
+
   )
 }
